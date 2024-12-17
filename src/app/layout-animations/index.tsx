@@ -1,17 +1,10 @@
 import { StyleSheet, View } from 'react-native';
 import { NavigationItem } from '@/src/components';
-import { useNavigation } from 'expo-router';
-import { useEffect } from 'react';
 
-export default function Index() {
-  const navigation = useNavigation();
-  useEffect(() => {
-    navigation.setOptions({ headerShown: false });
-  }, []);
-
+export default function LayoutAnimations() {
   return (
     <View style={styles.container}>
-      <NavigationItem href="/layout-animations" label="Layout animations" />
+      <NavigationItem href="/layout-animations/basics" label="Basics" />
     </View>
   );
 }
