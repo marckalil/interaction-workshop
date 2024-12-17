@@ -2,6 +2,7 @@ import { StyleSheet, View } from 'react-native';
 import { NavigationItem } from '@/src/components';
 import { useNavigation } from 'expo-router';
 import { useEffect } from 'react';
+import { spacing } from '@/src/constants';
 
 export default function Index() {
   const navigation = useNavigation();
@@ -21,7 +22,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 20,
-    gap: 16
+    paddingHorizontal: spacing.M,
+    gap: spacing.SM
   }
 });

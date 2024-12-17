@@ -1,6 +1,7 @@
 import { Link, LinkProps } from 'expo-router';
 import { StyleSheet, Text, View } from 'react-native';
 import Icon from '@expo/vector-icons/Octicons';
+import { spacing } from '../constants';
 
 type NavigationItemProps = Omit<LinkProps, 'children'> & {
   label: string;
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: 12,
+    paddingVertical: spacing.S,
     borderBottomColor: 'grey',
     borderBottomWidth: StyleSheet.hairlineWidth
   },
