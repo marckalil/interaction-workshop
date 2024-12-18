@@ -1,6 +1,6 @@
 import { color, radius, spacing } from '@/src/constants';
 import { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Button } from '@/src/components';
 
 export default function Index() {
@@ -25,7 +25,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    gap: spacing.M
+    gap: spacing.M,
+    padding: spacing.M
   },
   squareContainer: {
     height: SQUARE_SIZE

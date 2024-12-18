@@ -6,6 +6,7 @@ export default function LayoutAnimations() {
   return (
     <View style={styles.container}>
       <NavigationItem href="/layout-animations/basics" label="Basics" />
+      <NavigationItem href="/layout-animations/login-form" label="Login form" />
     </View>
   );
 }
