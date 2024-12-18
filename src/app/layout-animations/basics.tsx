@@ -1,6 +1,7 @@
 import { color, radius, spacing } from '@/src/constants';
 import { useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import { Button } from '@/src/components';
 
 export default function Index() {
   const [showsSquare, setShowsSquare] = useState(false);
@@ -13,9 +14,7 @@ export default function Index() {
       <View style={styles.squareContainer}>
         {showsSquare && <View style={styles.square} />}
       </View>
-      <TouchableOpacity onPress={toggleSquare}>
-        <Text style={styles.button}>{showsSquare ? 'Hide' : 'Show'}</Text>
-      </TouchableOpacity>
+      <Button label={showsSquare ? 'Hide' : 'Show'} onPress={toggleSquare} />
     </View>
   );
 }
@@ -36,9 +35,5 @@ const styles = StyleSheet.create({
     height: SQUARE_SIZE,
     backgroundColor: color.blue,
     borderRadius: radius.M
-  },
-  button: {
-    fontSize: 20,
-    fontWeight: 'bold'
   }
 });
