@@ -1,23 +1,35 @@
-import { Card, cards, color, radius, spacing } from '@/src/constants';
-import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
-import Icon from '@expo/vector-icons/Octicons';
 import { useState } from 'react';
+import { Card, cards, color, radius, spacing } from '@/src/constants';
+import { FlatList, Pressable, StyleSheet, Text } from 'react-native';
+import Icon from '@expo/vector-icons/Octicons';
 
 type TodoProps = Card & {
+  index: number;
   onDelete: (id: string) => void;
 };
+
 function Todo(cardItem: TodoProps) {
+  const [disabled, setDisabled] = useState(false);
+  const toggleDisabled = () => {
+    setDisabled((prev) => !prev);
+  };
+
   return (
-    <View
-      style={[styles.cardContainer, { backgroundColor: color[cardItem.color] }]}
+    <Pressable
+      onPress={toggleDisabled}
+      style={[
+        styles.cardContainer,
+        { backgroundColor: disabled ? color.grey : color[cardItem.color] }
+      ]}
     >
       <Text style={styles.cardTitle}>{cardItem.name}</Text>
       <Pressable onPress={() => cardItem.onDelete(cardItem.id)}>
         <Icon name="trash" size={24} color="white" />
       </Pressable>
-    </View>
+    </Pressable>
   );
 }
+
 export default function FlatListExample() {
   const [todos, setTodos] = useState(cards);
 
@@ -25,8 +37,8 @@ export default function FlatListExample() {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
-  const renderItem = ({ item }: { item: Card }) => (
-    <Todo {...item} onDelete={handleDelete} />
+  const renderItem = ({ item, index }: { item: Card; index: number }) => (
+    <Todo {...item} index={index} onDelete={handleDelete} />
   );
 
   return (
