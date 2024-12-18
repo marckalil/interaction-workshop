@@ -3,7 +3,8 @@ import {
   Pressable,
   PressableProps,
   Text,
-  ActivityIndicator
+  ActivityIndicator,
+  View
 } from 'react-native';
 import { color, radius, spacing } from '@/src/constants';
 
@@ -19,8 +20,13 @@ export function Button({
 }: ButtonProps) {
   return (
     <Pressable style={styles.container} {...pressableProps}>
-      <Text style={styles.label}>{label}</Text>
-      {loading && <ActivityIndicator />}
+      {loading ? (
+        <View>
+          <ActivityIndicator />
+        </View>
+      ) : (
+        <Text style={styles.label}>{label}</Text>
+      )}
     </Pressable>
   );
 }
