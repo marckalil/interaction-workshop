@@ -2,7 +2,6 @@ import { Link, LinkProps } from 'expo-router';
 import { StyleSheet, Text, View } from 'react-native';
 import Icon from '@expo/vector-icons/Octicons';
 import { color, radius, spacing } from '@/src/constants';
-import { Separator } from './Separator';
 
 type NavigationItemProps = Omit<LinkProps, 'children'> & {
   label: string;
