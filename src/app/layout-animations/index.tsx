@@ -7,6 +7,10 @@ export default function LayoutAnimations() {
     <View style={styles.container}>
       <NavigationItem href="/layout-animations/basics" label="Basics" />
       <NavigationItem href="/layout-animations/login-form" label="Login form" />
+      <NavigationItem
+        href="/layout-animations/radio-button"
+        label="Radio button"
+      />
     </View>
   );
 }
