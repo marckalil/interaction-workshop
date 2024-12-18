@@ -11,6 +11,7 @@ export default function LayoutAnimations() {
         href="/layout-animations/radio-button"
         label="Radio button"
       />
+      <NavigationItem href="/layout-animations/modal" label="Modal" />
     </View>
   );
 }
