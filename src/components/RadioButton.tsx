@@ -1,5 +1,6 @@
 import { Pressable, StyleSheet, View } from 'react-native';
 import { color } from '@/src/constants';
+import Animated, { BounceIn, FadeOut } from 'react-native-reanimated';
 
 type RadioButtonProps = {
   checked?: boolean;
@@ -10,7 +11,13 @@ export function RadioButton({ checked = false, onPress }: RadioButtonProps) {
   return (
     <Pressable onPress={onPress}>
       <View style={styles.outerCircle}>
-        {checked && <View style={styles.innerCircle} />}
+        {checked && (
+          <Animated.View
+            entering={BounceIn}
+            exiting={FadeOut}
+            style={styles.innerCircle}
+          />
+        )}
       </View>
     </Pressable>
   );

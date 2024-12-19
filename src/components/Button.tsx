@@ -9,6 +9,7 @@ import {
   ViewStyle
 } from 'react-native';
 import { color, radius, spacing } from '@/src/constants';
+import Animated, { FadeIn, FadeInLeft, FadeOut } from 'react-native-reanimated';
 
 type ButtonProps = PressableProps & {
   label: string;
@@ -24,12 +25,11 @@ export function Button({
 }: ButtonProps) {
   return (
     <Pressable style={[styles.container, style]} {...pressableProps}>
-      {loading ? (
-        <View>
+      <Text style={styles.label}>{label}</Text>
+      {loading && (
+        <Animated.View entering={FadeInLeft} exiting={FadeOut}>
           <ActivityIndicator />
-        </View>
-      ) : (
-        <Text style={styles.label}>{label}</Text>
+        </Animated.View>
       )}
     </Pressable>
   );

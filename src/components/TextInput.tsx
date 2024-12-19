@@ -6,6 +6,7 @@ import {
   View
 } from 'react-native';
 import { color, spacing } from '@/src/constants';
+import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
 
 type TextInputProps = RNTextInputProps & {
   errorMessage?: string;
@@ -24,7 +25,15 @@ export function TextInput({
         placeholderTextColor="grey"
         {...textInputProps}
       />
-      {showError && <Text style={styles.errorMessage}>{errorMessage}</Text>}
+      {showError && (
+        <Animated.Text
+          entering={FadeIn}
+          exiting={FadeOut}
+          style={styles.errorMessage}
+        >
+          {errorMessage}
+        </Animated.Text>
+      )}
     </View>
   );
 }

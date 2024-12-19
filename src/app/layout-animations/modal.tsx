@@ -4,6 +4,16 @@ import React from 'react';
 import { useState } from 'react';
 import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import Animated, {
+  FadeIn,
+  FadeInDown,
+  FadeOut,
+  LightSpeedInLeft,
+  LightSpeedInRight,
+  Easing
+} from 'react-native-reanimated';
+
+const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
 export default function ModalExample() {
   const [modalVisible, setModalVisible] = useState(false);
@@ -23,16 +33,33 @@ export default function ModalExample() {
       </SafeAreaView>
 
       <Modal visible={modalVisible} transparent>
-        <Pressable onPress={closeModal} style={styles.overlay} />
+        <AnimatedPressable
+          entering={FadeIn.duration(500)}
+          exiting={FadeOut}
+          onPress={closeModal}
+          style={styles.overlay}
+        />
         <View style={styles.modal}>
-          <View style={styles.modalContent}>
-            <Text style={styles.modalTitle}>Modal Example</Text>
+          <Animated.View entering={FadeInDown} style={styles.modalContent}>
+            <Animated.Text
+              entering={LightSpeedInLeft.duration(300)
+                .delay(500)
+                .easing(Easing.inOut(Easing.quad))}
+              style={styles.modalTitle}
+            >
+              Modal Example
+            </Animated.Text>
             <Separator />
-            <Text style={styles.modalText}>
+            <Animated.Text
+              entering={LightSpeedInRight.delay(500)
+                .duration(300)
+                .easing(Easing.inOut(Easing.quad))}
+              style={styles.modalText}
+            >
               This is an example about how to animate a modal
-            </Text>
+            </Animated.Text>
             <Button onPress={closeModal} label="Close" />
-          </View>
+          </Animated.View>
         </View>
       </Modal>
     </>

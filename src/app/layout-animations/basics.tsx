@@ -2,6 +2,7 @@ import { color, radius, spacing } from '@/src/constants';
 import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Button } from '@/src/components';
+import Animated, { Easing, FadeIn, FadeOut } from 'react-native-reanimated';
 
 export default function Index() {
   const [showsSquare, setShowsSquare] = useState(false);
@@ -12,7 +13,13 @@ export default function Index() {
   return (
     <View style={styles.container}>
       <View style={styles.squareContainer}>
-        {showsSquare && <View style={styles.square} />}
+        {showsSquare && (
+          <Animated.View
+            entering={FadeIn}
+            exiting={FadeOut}
+            style={styles.square}
+          />
+        )}
       </View>
       <Button label={showsSquare ? 'Hide' : 'Show'} onPress={toggleSquare} />
     </View>

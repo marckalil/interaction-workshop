@@ -3,6 +3,7 @@ import { Button } from '@/src/components';
 import { TextInput } from '@/src/components/TextInput';
 import { spacing } from '@/src/constants';
 import { StyleSheet, View } from 'react-native';
+import Animated, { Easing, FadeIn, FadeInUp } from 'react-native-reanimated';
 
 function isEmailValid(email: string) {
   return email.includes('@');
@@ -45,21 +46,33 @@ export default function LoginForm() {
   return (
     <View style={styles.container}>
       <View style={styles.inputContainer}>
-        <TextInput
-          errorMessage="Invalid e-mail"
-          onChangeText={handleEmailChange}
-          onFocus={onFocusEmail}
-          placeholder="Email"
-          showError={showEmailError}
-        />
-        <TextInput
-          errorMessage="Invalid Password"
-          onChangeText={handlePasswordChange}
-          onFocus={onFocusPassword}
-          placeholder="Password"
-          secureTextEntry
-          showError={showPasswordError}
-        />
+        <Animated.View
+          entering={FadeInUp.duration(200)
+            .delay(500)
+            .easing(Easing.inOut(Easing.quad))}
+        >
+          <TextInput
+            errorMessage="Invalid e-mail"
+            onChangeText={handleEmailChange}
+            onFocus={onFocusEmail}
+            placeholder="Email"
+            showError={showEmailError}
+          />
+        </Animated.View>
+        <Animated.View
+          entering={FadeInUp.duration(200)
+            .delay(700)
+            .easing(Easing.inOut(Easing.quad))}
+        >
+          <TextInput
+            errorMessage="Invalid Password"
+            onChangeText={handlePasswordChange}
+            onFocus={onFocusPassword}
+            placeholder="Password"
+            secureTextEntry
+            showError={showPasswordError}
+          />
+        </Animated.View>
       </View>
       <Button label="Login" loading={loading} onPress={onSubmit} />
     </View>
