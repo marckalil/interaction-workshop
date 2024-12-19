@@ -7,6 +7,7 @@ export default function LayoutAnimations() {
     <View style={styles.container}>
       <NavigationItem href="/shared-values/basics" label="Basics" />
       <NavigationItem href="/shared-values/bottom-tabs" label="Bottom tabs" />
+      <NavigationItem href="/shared-values/switch" label="Switch" />
     </View>
   );
 }
