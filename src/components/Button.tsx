@@ -4,22 +4,26 @@ import {
   PressableProps,
   Text,
   ActivityIndicator,
-  View
+  View,
+  StyleProp,
+  ViewStyle
 } from 'react-native';
 import { color, radius, spacing } from '@/src/constants';
 
 type ButtonProps = PressableProps & {
   label: string;
   loading?: boolean;
+  style?: StyleProp<ViewStyle>;
 };
 
 export function Button({
   label,
   loading = false,
+  style,
   ...pressableProps
 }: ButtonProps) {
   return (
-    <Pressable style={styles.container} {...pressableProps}>
+    <Pressable style={[styles.container, style]} {...pressableProps}>
       {loading ? (
         <View>
           <ActivityIndicator />
