@@ -4,6 +4,7 @@ import { Button } from '@/src/components';
 
 const SQUARE_SIZE = 100;
 
+// withTiming / withSpring / withRepeat
 export default function Index() {
   const handlePress = () => {};
 
