@@ -7,7 +7,7 @@ export type Card = {
 };
 
 const colors = Object.keys(color).filter(
-  (c) => c !== 'red'
+  (c) => c !== 'red' && c !== 'grey' && c !== 'black' && c !== 'white'
 ) as (keyof typeof color)[];
 
 const tasks = [

@@ -35,16 +35,16 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     width: '100%',
+    height: 48,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: color.yellow,
     paddingHorizontal: spacing.M,
-    paddingVertical: spacing.S,
     borderRadius: radius.S,
     gap: spacing.XS
   },
   label: {
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: 'semibold'
   }
 });

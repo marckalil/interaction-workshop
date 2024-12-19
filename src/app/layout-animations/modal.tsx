@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     opacity: 0.5
   },
   modalContent: {
-    backgroundColor: 'white',
+    backgroundColor: color.white,
     width: '80%',
     justifyContent: 'center',
     alignItems: 'center',

@@ -30,6 +30,10 @@ function Todo(cardItem: TodoProps) {
   );
 }
 
+function keyExtractor(todoItem: Card) {
+  return todoItem.id;
+}
+
 export default function FlatListExample() {
   const [todos, setTodos] = useState(cards);
 
@@ -44,6 +48,7 @@ export default function FlatListExample() {
   return (
     <FlatList
       data={todos}
+      keyExtractor={keyExtractor}
       renderItem={renderItem}
       contentContainerStyle={styles.contentContainerStyle}
     />
@@ -65,6 +70,6 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     fontSize: 16,
-    color: 'white'
+    color: color.white
   }
 });

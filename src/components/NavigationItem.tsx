@@ -12,7 +12,7 @@ export function NavigationItem({ label, ...linkProps }: NavigationItemProps) {
     <Link {...linkProps} style={styles.link}>
       <View style={styles.container}>
         <Text style={styles.label}>{label}</Text>
-        <Icon name="chevron-right" size={24} />
+        <Icon name="chevron-right" color={color.black} size={24} />
       </View>
     </Link>
   );
@@ -25,14 +25,17 @@ const styles = StyleSheet.create({
   },
   container: {
     width: '100%',
+    height: 48,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: spacing.S,
+    paddingHorizontal: spacing.M,
     backgroundColor: color.yellow,
     borderRadius: radius.S
   },
   label: {
-    fontSize: 16
+    fontSize: 16,
+    fontWeight: 'semibold',
+    color: color.black
   }
 });

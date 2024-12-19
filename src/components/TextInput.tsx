@@ -36,15 +36,15 @@ const styles = StyleSheet.create({
     gap: spacing.XXS
   },
   textInput: {
-    backgroundColor: 'white',
-    color: 'black',
+    backgroundColor: color.white,
+    color: color.black,
     width: '100%',
     height: 48,
     paddingHorizontal: spacing.M,
     paddingVertical: spacing.S,
     borderRadius: 24,
     borderWidth: 1,
-    borderColor: 'black'
+    borderColor: color.black
   },
   errorMessage: {
     color: color.red,
